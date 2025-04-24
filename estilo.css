@@ -1,4 +1,4 @@
-body {
+Body {
     font-family: sans-serif; /* Fuente legible */
     margin: 0; /* Elimina el margen predeterminado del cuerpo */
     background-color: #f4f4f4; /* Un fondo suave */
@@ -37,7 +37,7 @@ footer {
     border: 1px solid #ddd; /* Borde ligero */
     border-radius: 8px; /* Esquinas redondeadas */
     padding: 15px;
-    text-align: center; /* Centra el contenido */
+    text-align: center; /* Centra el contenido general */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
     display: flex; /* Usamos Flexbox para alinear contenido dentro del producto */
     flex-direction: column; /* Apila los elementos verticalmente */
@@ -57,11 +57,20 @@ footer {
     margin-bottom: 8px;
 }
 
+/* Estilos para el nuevo contenedor de precio y botón */
+.precio-compra {
+    display: flex; /* Usa flexbox para alinear precio y botón en fila */
+    justify-content: center; /* Centra el precio y el botón horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+    margin-bottom: 10px; /* Espacio debajo de este contenedor */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
 .producto .precio {
     font-size: 1.1em;
     color: #007BFF; /* Color para el precio */
     font-weight: bold; /* Precio en negrita */
-    margin-bottom: 8px;
+    margin: 0 10px 0 0; /* Margen a la derecha del precio para separar del botón */
 }
 
 .producto .descripcion {
@@ -69,7 +78,26 @@ footer {
     color: #555;
     flex-grow: 1; /* Permite que la descripción ocupe espacio extra */
     margin-bottom: 10px;
+    text-align: left; /* Alinea la descripción a la izquierda si prefieres */
 }
+
+/* Estilos para el nuevo botón de compra */
+.boton-compra {
+    display: inline-block; /* Se comporta como un bloque pero en línea con otros elementos flex */
+    background-color: #25D366; /* Verde de WhatsApp */
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none; /* Elimina el subrayado */
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+.boton-compra:hover {
+    background-color: #1DA851; /* Verde un poco más oscuro al pasar el ratón */
+}
+
 
 /* Estilo básico para hacerlo un poco más responsivo */
 @media (max-width: 600px) {
@@ -80,5 +108,18 @@ footer {
 
     .producto {
         padding: 10px;
+    }
+
+    .precio-compra {
+        flex-direction: column; /* Apila precio y botón en pantallas pequeñas */
+        align-items: center; /* Centra los elementos apilados */
+    }
+
+    .producto .precio {
+        margin: 0 0 5px 0; /* Ajusta el margen cuando están apilados */
+    }
+
+    .boton-compra {
+         margin: 5px 0 0 0; /* Ajusta el margen cuando están apilados */
     }
 }
