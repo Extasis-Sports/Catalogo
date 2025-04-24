@@ -1,0 +1,186 @@
+Body {
+    font-family: sans-serif; /* Fuente legible */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    background-color: #f4f4f4; /* Un fondo suave */
+    color: #333; /* Color de texto principal */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center; /* Esto centrará el logo, el h1 y el p */
+    margin-bottom: 20px;
+}
+
+/* Estilos para el logo */
+.logo {
+    max-width: 150px; /* Define un ancho máximo para el logo (ajusta si es necesario) */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio debajo del logo para separarlo del título */
+    display: block; /* Convertir a bloque para controlar mejor el margen */
+    margin-left: auto; /* Centrar si es display: block */
+    margin-right: auto; /* Centrar si es display: block */
+}
+
+/* Estilos generales para los enlaces sociales (aplican tanto en header como si estuvieran en footer) */
+.social-links {
+    margin-bottom: 15px; /* Espacio debajo del bloque de enlaces */
+    /* Eliminamos el padding-bottom y border-bottom generales */
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilos específicos para los enlaces sociales cuando están en el HEADER */
+.header-social-links {
+    margin-top: 15px; /* Añade un poco de espacio encima de los enlaces en el header */
+    margin-bottom: 0; /* Quita el margin-bottom si se prefiere pegado al borde inferior del header */
+    padding-top: 10px; /* Opcional: Añadir un poco de padding arriba */
+    border-top: 1px solid #444; /* Opcional: Añadir una línea divisoria arriba si lo deseas */
+}
+
+
+.social-links a {
+    color: #fff; /* Color blanco para el texto de los enlaces */
+    text-decoration: none;
+    margin: 0 10px; /* Espacio entre los enlaces */
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #007BFF; /* Cambio de color al pasar el ratón */
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column; /* Apila el contenido del footer */
+    align-items: center; /* Centra el contenido horizontalmente */
+    /* Como no hay enlaces sociales, eliminamos el padding/border que antes les pertenecían */
+    /* padding-bottom: 15px; */
+    /* border-bottom: 1px solid #444; */
+}
+
+
+.catalogo-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.producto {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.producto h2 {
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.precio-compra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.producto .precio {
+    font-size: 1.1em;
+    color: #007BFF;
+    font-weight: bold;
+    margin: 0 10px 0 0;
+}
+
+.producto .descripcion {
+    font-size: 0.9em;
+    color: #555;
+    flex-grow: 1;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.boton-compra {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton-compra:hover {
+    background-color: #1DA851;
+}
+
+
+@media (max-width: 600px) {
+    .catalogo-contenedor {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .producto {
+        padding: 10px;
+    }
+
+    .precio-compra {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .producto .precio {
+        margin: 0 0 5px 0;
+    }
+
+    .boton-compra {
+         margin: 5px 0 0 0;
+    }
+
+    footer {
+        padding: 1rem 10px;
+    }
+
+    /* Ajustes para los enlaces sociales en móvil si estuvieran en el footer,
+       pero ahora están en el header, así que esta parte podría ser irrelevante
+       o necesitar ajuste si se aplicaran estilos específicos al header */
+    .social-links { /* Esto afectará ahora a los del header */
+         margin-bottom: 10px; /* Mantener un poco de espacio debajo si están en header */
+         /* padding-bottom: 10px; */ /* Eliminar si no quieres el padding inferior */
+    }
+
+    .social-links a { /* Esto afectará ahora a los del header */
+         margin: 0 5px;
+         font-size: 0.9em;
+    }
+}
