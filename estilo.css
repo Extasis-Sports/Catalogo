@@ -1,0 +1,714 @@
+body {
+    font-family: sans-serif; /* Fuente legible */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    background-color: #e0e5ec; /* Fondo suave basado en la paleta (ligero gris/azul) */
+    color: #1A202E; /* Color de texto principal (Navy Blue) */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+header {
+    background-color: #0D1238; /* Royal Blue (Fondo oscuro para header/footer) */
+    color: #fff; /* Texto blanco en fondo oscuro */
+    padding: 1rem 0;
+    text-align: center; /* Esto centrará el logo, el h1 y el p */
+    margin-bottom: 20px;
+    position: relative; /* Necesario para posicionar el carrito absolutamente */
+}
+
+/* Estilos para el logo */
+.logo {
+    max-width: 150px; /* Define un ancho máximo para el logo (ajusta si es necesario) */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio debajo del logo para separarlo del título */
+    display: block; /* Convertir a bloque para controlar mejor el margen */
+    margin-left: auto; /* Centrar si es display: block */
+    margin-right: auto; /* Centrar si es display: block */
+}
+
+/* Estilos generales para los enlaces sociales */
+.social-links {
+    margin-bottom: 15px; /* Espacio debajo del bloque de enlaces */
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilos específicos para los enlaces sociales cuando están en el HEADER */
+.header-social-links {
+    margin-top: 15px; /* Añade un poco de espacio encima de los enlaces en el header */
+    margin-bottom: 0; /* Quita el margin-bottom si se prefiere pegado al borde inferior del header */
+    padding-top: 10px; /* Opcional: Añadir un poco de padding arriba */
+    border-top: 1px solid #1A202E; /* Línea divisoria con Navy Blue */
+}
+
+.social-links a {
+    color: #fff; /* Color blanco para el texto de los enlaces en el header */
+    text-decoration: none;
+    margin: 0 10px; /* Espacio entre los enlaces */
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #8B9AC3; /* Blue Gray al pasar el ratón */
+}
+
+/* --- Estilos para el icono del carrito en el header --- */
+.cart-icon-container {
+    position: absolute;
+    top: 15px; /* Ajusta según sea necesario para alinear verticalmente */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    font-size: 1.5em; /* Tamaño del ícono */
+    color: white; /* Color del ícono */
+    cursor: pointer;
+    z-index: 20; /* Asegura que esté por encima de otros elementos */
+    display: flex; /* Para alinear el ícono y el número */
+    align-items: center;
+}
+
+.cart-count {
+    background-color: #264257; /* Midnight Blue para el contador */
+    color: white;
+    font-size: 0.6em; /* Tamaño más pequeño para el número */
+    border-radius: 50%; /* Circular */
+    padding: 3px 6px; /* Espaciado interno */
+    margin-left: 5px; /* Espacio entre el ícono y el número */
+    vertical-align: top; /* Alinea el número con la parte superior del ícono */
+    font-weight: bold;
+    min-width: 10px; /* Ancho mínimo para números de un dígito */
+    text-align: center;
+    line-height: 1; /* Ajusta la altura de línea */
+    display: inline-block; /* Asegura que padding y width/height funcionen */
+}
+/* --- Fin Estilos Icono Carrito --- */
+
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px;
+    background-color: #0D1238; /* Royal Blue (Fondo oscuro para header/footer) */
+    color: #fff; /* Texto blanco en fondo oscuro */
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column; /* Apila el contenido del footer */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+.catalogo-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para cada producto (contenedor flex) */
+.producto {
+    background-color: #F5F5FA; /* Fondo blanco con un 2% de tono azul */
+    color: #1A202E; /* Texto Navy Blue para contraste con el fondo claro */
+    border: 1px solid #d9dde3; /* Borde ligero basado en la paleta */
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    /* Puedes añadir un min-height opcionalmente si quieres que todas las tarjetas sean iguales */
+    /* min-height: 450px; /* Ejemplo, ajusta este valor */
+}
+
+/* --- Estilos para la Galería de Imágenes del Producto --- */
+
+.product-image-gallery {
+    position: relative; /* Permite posicionar las flechas dentro */
+    width: 100%; /* Ocupa el ancho disponible dentro del .producto */
+    overflow: hidden; /* Oculta las imágenes que no están activas */
+    margin-bottom: 10px; /* Espacio debajo de la galería */
+    border-radius: 4px; /* Hereda el borde redondeado si aplica */
+    /* Importante: Define un aspect-ratio o height para que ocupe espacio y no colapse */
+    aspect-ratio: 1 / 1; /* Ejemplo: relación de aspecto cuadrada. Ajusta según el tamaño de tus imágenes */
+    display: block; /* Asegura que ocupa su propia línea y espacio */
+}
+
+.product-image-gallery img.gallery-image {
+    width: 100%;
+    height: 100%; /* Hace que la imagen ocupe toda la altura del contenedor de la galería */
+    display: block;
+    position: absolute; /* Posiciona las imágenes una encima de la otra */
+    top: 0;
+    left: 0;
+    opacity: 0; /* Oculta todas las imágenes por defecto */
+    transition: opacity 0.5s ease; /* Suave transición al cambiar de imagen */
+    margin-bottom: 0; /* Elimina margen inferior de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+    z-index: 1; /* Asegura que las imágenes estén por encima de la base */
+}
+
+.product-image-gallery img.gallery-image.active {
+    opacity: 1; /* Muestra la imagen activa */
+    position: relative; /* La imagen activa es relativa para que el contenedor padre tome su tamaño */
+    z-index: 2; /* Asegura que la imagen activa esté por encima de las inactivas */
+}
+
+/* Estilos para las flechas de navegación */
+.gallery-arrow {
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta para el centrado perfecto */
+    background-color: rgba(13, 18, 56, 0.5); /* Royal Blue semi-transparente */
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 10; /* Asegura que las flechas estén por encima de las imágenes */
+    border: none;
+    border-radius: 50%; /* Flechas redondas */
+    font-size: 1.2em;
+    font-weight: bold;
+    user-select: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+    text-align: center;
+}
+
+.gallery-arrow:hover {
+    background-color: rgba(13, 18, 56, 0.8); /* Más oscuro al pasar el ratón */
+    transform: translateY(-50%) scale(1.1); /* Ligeramente más grande al pasar el ratón */
+}
+
+.gallery-arrow.left {
+    left: 10px; /* Posiciona la flecha izquierda */
+}
+
+.gallery-arrow.right {
+    right: 10px; /* Posiciona la flecha derecha */
+}
+
+/* --- Fin Estilos Galería --- */
+
+
+/* Modificación para alinear precio y botón */
+.precio-compra {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Esto empuja este bloque hacia abajo */
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.producto .precio {
+    font-size: 1.1em;
+    color: #264257; /* Midnight Blue para el precio (visible en fondo claro) */
+    font-weight: bold;
+    margin: 0; /* Reset */
+}
+
+.producto .descripcion {
+    font-size: 0.9em;
+    color: #555; /* Mantener gris oscuro para descripción (visible en fondo claro) */
+    flex-grow: 1;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.boton-compra, .boton-agregar-carrito {
+    color: white; /* Texto blanco para los botones */
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton-compra {
+    background-color: #1A202E; /* Navy Blue (Azul Oscuro) para Comprar */
+}
+
+.boton-compra:hover {
+    background-color: #0D1238; /* Royal Blue al pasar el ratón */
+}
+
+.boton-agregar-carrito {
+    background-color: #264257; /* Midnight Blue para Agregar al Carrito */
+}
+
+.boton-agregar-carrito:hover {
+    background-color: #1A202E; /* Navy Blue al pasar el ratón */
+}
+
+
+/* --- NUEVOS ESTILOS PARA LA SECCIÓN DE TALLAS Y CANTIDADES --- */
+.product-options {
+    margin: 15px 0; /* Espacio arriba y abajo */
+    padding: 10px 0;
+    /* Eliminadas las líneas border-top y border-bottom */
+}
+
+.product-options .options-title {
+    font-size: 0.95em;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    color: #1A202E; /* Navy Blue para el título de opciones (visible en fondo claro) */
+    text-align: left;
+}
+
+.size-quantity-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.size-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+    color: #1A202E; /* Etiquetas de talla Navy Blue (visible en fondo claro) */
+}
+
+.size-option label {
+    font-weight: bold;
+    min-width: 20px;
+    text-align: right;
+}
+
+.size-option input[type="number"].quantity-by-size {
+    width: 45px;
+    padding: 5px;
+    border: 1px solid #d9dde3; /* Borde ligero basado en la paleta */
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1em;
+    -moz-appearance: textfield; /* Oculta flechas en Firefox */
+    color: #1A202E; /* Color de texto del input (Navy Blue) */
+    background-color: #fff; /* Fondo blanco para el input */
+}
+
+/* Oculta flechas en Chrome, Safari, Edge, Opera */
+.size-option input[type="number"].quantity-by-size::-webkit-outer-spin-button,
+.size-option input[type="number"].quantity-by-size::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- FIN NUEVOS ESTILOS --- */
+
+
+/* --- Media Query existente --- */
+@media (max-width: 600px) {
+    .catalogo-contenedor {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .producto {
+        padding: 10px;
+        /* color ya ajustado arriba */
+    }
+
+    .precio-compra {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .producto .precio {
+        margin: 0;
+        /* color ya ajustado arriba */
+    }
+
+    .boton-compra, .boton-agregar-carrito {
+         margin: 0;
+         width: 100%;
+         box-sizing: border-box;
+    }
+
+    footer {
+        padding: 1rem 10px;
+    }
+
+    .social-links {
+         margin-bottom: 10px;
+    }
+
+    .social-links a {
+         margin: 0 5px;
+         font-size: 0.9em;
+    }
+
+    .cart-icon-container {
+        top: 10px;
+        right: 10px;
+        font-size: 1.3em;
+    }
+
+     .cart-count {
+        padding: 2px 5px;
+     }
+
+     .product-options {
+        margin: 10px 0;
+    }
+
+    .product-options .options-title {
+        text-align: center;
+        /* color ya ajustado arriba */
+    }
+
+    .size-quantity-list {
+        justify-content: center;
+        gap: 8px;
+    }
+
+     .size-option input[type="number"].quantity-by-size {
+         width: 40px;
+         padding: 4px;
+         /* border, color, background-color ya ajustados arriba */
+     }
+}
+
+
+/* --- Estilos para el Modal de Compra Directa (existente) y Modal del Carrito --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 18, 56, 0.7); /* Royal Blue semi-transparente */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: #F5F5FA; /* Fondo blanco con un 2% de tono azul para el contenido del modal */
+    color: black !important; /* Color de texto negro para contraste */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 550px;
+    width: 95%;
+    position: relative;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa; /* Mantener gris */
+    transition: color 0.3s ease;
+}
+
+.modal-close-button:hover {
+    color: #777; /* Mantener gris */
+}
+
+/* Estilos para el contenido del resumen dentro del modal */
+.modal-content h1, .modal-content h2, .modal-content h3 { /* Aplicar a h1, h2, h3 dentro del modal */
+     color: black !important; /* Títulos negros sobre fondo claro */
+     border-bottom: 1px solid #d9dde3; /* Borde ligero basado en la paleta */
+     padding-bottom: 10px;
+     margin-bottom: 15px;
+     font-size: 1.5em; /* Ajustar tamaño según el nivel */
+}
+
+.modal-content h2 {
+    font-size: 1.3em;
+}
+
+.modal-content h3 {
+    font-size: 1.1em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+     margin-bottom: 8px;
+     color: black !important; /* Texto normal negro */
+}
+
+.modal-content strong {
+    color: black !important; /* Texto resaltado negro */
+}
+
+.modal-content .total {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: black !important; /* Total a pagar negro */
+    margin-top: 20px;
+    border-top: 1px solid #d9dde3; /* Borde ligero basado en la paleta */
+    padding-top: 15px;
+}
+
+.modal-content .discount {
+    color: #dc3545 !important; /* Color rojo para el descuento - CON !important */
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Estilo específico para el botón de WhatsApp dentro del modal */
+.modal-content .whatsapp-button {
+    background-color: #1A202E; /* Azul Oscuro (Navy Blue) */
+    color: white; /* Texto blanco (para contraste con el azul oscuro) */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Añadida transición para box-shadow */
+    display: block; /* Asegurar que mantenga su display */
+    width: fit-content; /* Asegurar que mantenga su ancho */
+    margin: 20px auto 0 auto; /* Centrar */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Mayor profundidad */
+}
+
+.modal-content .whatsapp-button:hover {
+    background-color: #0D1238; /* Royal Blue al pasar el ratón */
+}
+
+/* Estilos para los campos de datos del cliente en los modales */
+.customer-info-fields label {
+    color: black !important; /* Etiquetas negras sobre fondo claro */
+}
+
+.customer-info-fields input[type="text"],
+.customer-info-fields textarea,
+.customer-info-fields select {
+    background-color: #fff; /* Fondo blanco para los inputs */
+    border: 1px solid #d9dde3; /* Borde ligero */
+    color: black !important; /* Color de texto negro */
+    padding: 8px; /* Asegurar padding */
+    border-radius: 4px; /* Asegurar borde redondeado */
+    box-sizing: border-box; /* Incluir padding en el ancho */
+    width: 100%; /* Ocupar todo el ancho */
+}
+
+
+/* --- Estilos para el Nuevo Modal del Carrito --- */
+/* La regla #cartModalOverlay .modal-content h1 ya está cubierta por .modal-content h1 */
+
+#cartItemsContainer {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    border-bottom: 1px dashed #d9dde3; /* Borde ligero */
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: black !important; /* Título de item negro */
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-size: 0.9em;
+    color: black !important; /* Texto normal negro */
+}
+
+/* Estilo para mostrar las tallas y cantidades en el modal del carrito */
+.cart-item-details .item-sizes {
+    font-size: 0.9em;
+    color: #8B9AC3; /* Blue Gray para las tallas (visible en fondo claro) */
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dotted #d9dde3; /* Separador visual ligero */
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo para el botón Eliminar en el carrito */
+.remove-item-button {
+    background-color: #dc3545; /* Color rojo original para Eliminar */
+    color: white; /* Texto blanco */
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item-button:hover {
+    background-color: #c82333; /* Color rojo más oscuro al pasar el ratón */
+}
+
+#cartSummary .whatsapp-button {
+    background-color: #1A202E; /* Azul Oscuro (Navy Blue) */
+    color: white; /* Texto blanco (para contraste con el azul oscuro) */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Añadida transición para box-shadow */
+    margin-top: 20px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Mayor profundidad */
+}
+
+#cartSummary .whatsapp-button:hover {
+     background-color: #0D1238; /* Royal Blue al pasar el ratón */
+}
+
+#cartSummary .total {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black !important; /* Total del carrito negro */
+    margin: 0;
+}
+
+
+/* Media query para ajustar los modales en pantallas pequeñas */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 20px;
+        max-width: 90%;
+        /* background y color ajustados arriba */
+        color: black !important; /* Asegurar texto negro en móvil */
+    }
+
+    .modal-content h1 {
+        font-size: 1.3em;
+        color: black !important; /* Asegurar títulos negros en móvil */
+    }
+
+    .modal-content h2 {
+        font-size: 1.1em;
+        color: black !important; /* Asegurar títulos negros en móvil */
+    }
+
+    .modal-content .total {
+        font-size: 1.2em;
+        color: black !important; /* Asegurar total negro en móvil */
+    }
+
+    .modal-content .whatsapp-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+        /* box-shadow ya ajustado arriba */
+    }
+
+    /* Ajustes para el modal del carrito en móvil */
+     #cartModalOverlay .modal-content h1 {
+         font-size: 1.4em;
+         color: black !important; /* Asegurar título principal negro en móvil */
+     }
+
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .cart-item-details {
+        width: 100%;
+    }
+
+    .cart-item-details h3 {
+        color: black !important; /* Asegurar título de item negro en móvil */
+    }
+
+     .cart-item-details p {
+         color: black !important; /* Asegurar texto normal negro en móvil */
+     }
+
+
+    .cart-item-details .item-sizes {
+         border-top: none;
+         padding-top: 0;
+     }
+
+     /* Inputs en móvil */
+     .customer-info-fields input[type="text"],
+     .customer-info-fields textarea,
+     .customer-info-fields select {
+         color: black !important; /* Asegurar texto negro en inputs en móvil */
+     }
+
+     .customer-info-fields label {
+         color: black !important; /* Asegurar etiquetas negras en inputs en móvil */
+     }
+}
+
+/* Estilos para el botón de desplazamiento (ahora en la parte superior y centrado) */
+.scroll-to-products {
+  display: block; /* Cambiado a block para centrar con margin */
+  width: 40px; /* Ancho del botón */
+  height: 40px; /* Altura del botón */
+  margin: 20px auto; /* Margen superior/inferior y auto para centrar horizontalmente */
+  /* Eliminadas las propiedades position, bottom, right, z-index */
+  /* position: fixed; */
+  /* bottom: 20px; */
+  /* right: 20px; */
+  /* z-index: 100; */
+
+  background-color: rgba(13, 18, 56, 0.7); /* Royal Blue semi-transparente */
+  color: white;
+  border-radius: 50%; /* Lo hace circular */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  /* Propiedades para centrar la flecha dentro del círculo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-to-products:hover {
+  background-color: rgba(13, 18, 56, 0.9); /* Un poco más oscuro al pasar el ratón */
+}
+
+/* Estilos para la flecha */
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid white; /* Crea la flecha hacia abajo */
+}
