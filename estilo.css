@@ -1,0 +1,628 @@
+/* --- CÓDIGO CSS EXISTENTE (SIN CAMBIOS) --- */
+body {
+    font-family: sans-serif; /* Fuente legible */
+    margin: 0; /* Elimina el margen predeterminado del cuerpo */
+    background-color: #f4f4f4; /* Un fondo suave */
+    color: #333; /* Color de texto principal */
+    line-height: 1.6; /* Espaciado entre líneas */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center; /* Esto centrará el logo, el h1 y el p */
+    margin-bottom: 20px;
+    position: relative; /* Necesario para posicionar el carrito absolutamente */
+}
+
+/* Estilos para el logo */
+.logo {
+    max-width: 150px; /* Define un ancho máximo para el logo (ajusta si es necesario) */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio debajo del logo para separarlo del título */
+    display: block; /* Convertir a bloque para controlar mejor el margen */
+    margin-left: auto; /* Centrar si es display: block */
+    margin-right: auto; /* Centrar si es display: block */
+}
+
+/* Estilos generales para los enlaces sociales */
+.social-links {
+    margin-bottom: 15px; /* Espacio debajo del bloque de enlaces */
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilos específicos para los enlaces sociales cuando están en el HEADER */
+.header-social-links {
+    margin-top: 15px; /* Añade un poco de espacio encima de los enlaces en el header */
+    margin-bottom: 0; /* Quita el margin-bottom si se prefiere pegado al borde inferior del header */
+    padding-top: 10px; /* Opcional: Añadir un poco de padding arriba */
+    border-top: 1px solid #444; /* Opcional: Añadir una línea divisoria arriba si lo deseas */
+}
+
+.social-links a {
+    color: #fff; /* Color blanco para el texto de los enlaces */
+    text-decoration: none;
+    margin: 0 10px; /* Espacio entre los enlaces */
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #007BFF; /* Cambio de color al pasar el ratón */
+}
+
+/* --- Estilos para el icono del carrito en el header --- */
+.cart-icon-container {
+    position: absolute;
+    top: 15px; /* Ajusta según sea necesario para alinear verticalmente */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    font-size: 1.5em; /* Tamaño del ícono */
+    color: white; /* Color del ícono */
+    cursor: pointer;
+    z-index: 20; /* Asegura que esté por encima de otros elementos */
+    display: flex; /* Para alinear el ícono y el número */
+    align-items: center;
+}
+
+.cart-count {
+    background-color: #007BFF; /* Fondo para el contador */
+    color: white;
+    font-size: 0.6em; /* Tamaño más pequeño para el número */
+    border-radius: 50%; /* Circular */
+    padding: 3px 6px; /* Espaciado interno */
+    margin-left: 5px; /* Espacio entre el ícono y el número */
+    vertical-align: top; /* Alinea el número con la parte superior del ícono */
+    font-weight: bold;
+    min-width: 10px; /* Ancho mínimo para números de un dígito */
+    text-align: center;
+    line-height: 1; /* Ajusta la altura de línea */
+    display: inline-block; /* Asegura que padding y width/height funcionen */
+}
+/* --- Fin Estilos Icono Carrito --- */
+
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column; /* Apila el contenido del footer */
+    align-items: center; /* Centra el contenido horizontalmente */
+}
+
+.catalogo-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para cada producto (contenedor flex) */
+.producto {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    /* Puedes añadir un min-height opcionalmente si quieres que todas las tarjetas sean iguales */
+    /* min-height: 450px; /* Ejemplo, ajusta este valor */
+}
+
+/* --- Estilos para la Galería de Imágenes del Producto --- */
+
+.product-image-gallery {
+    position: relative; /* Permite posicionar las flechas dentro */
+    width: 100%; /* Ocupa el ancho disponible dentro del .producto */
+    overflow: hidden; /* Oculta las imágenes que no están activas */
+    margin-bottom: 10px; /* Espacio debajo de la galería */
+    border-radius: 4px; /* Hereda el borde redondeado si aplica */
+    /* Importante: Define un aspect-ratio o height para que ocupe espacio y no colapse */
+    /* Usa aspect-ratio si tus imágenes tienen una proporción consistente */
+    aspect-ratio: 1 / 1; /* Ejemplo: relación de aspecto cuadrada. Ajusta según el tamaño de tus imágenes (ej: 4 / 3, 16 / 9) */
+    /* O usa height si prefieres una altura fija para todas las galerías */
+    /* height: 250px; /* Otra opción: altura fija. Elige 1 de los 2 (aspect-ratio o height) */
+    display: block; /* Asegura que ocupa su propia línea y espacio */
+}
+
+.product-image-gallery img.gallery-image {
+    width: 100%;
+    height: 100%; /* Hace que la imagen ocupe toda la altura del contenedor de la galería */
+    display: block;
+    position: absolute; /* Posiciona las imágenes una encima de la otra */
+    top: 0;
+    left: 0;
+    opacity: 0; /* Oculta todas las imágenes por defecto */
+    transition: opacity 0.5s ease; /* Suave transición al cambiar de imagen */
+    margin-bottom: 0; /* Elimina margen inferior de la imagen */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse, recortando si es necesario */
+    z-index: 1; /* Asegura que las imágenes estén por encima de la base del contenedor */
+}
+
+.product-image-gallery img.gallery-image.active {
+    opacity: 1; /* Muestra la imagen activa */
+    position: relative; /* La imagen activa es relativa para que el contenedor padre (.product-image-gallery) tome su tamaño basado en ella (aunque aspect-ratio o height tienen prioridad si están definidos) */
+    z-index: 2; /* Asegura que la imagen activa esté por encima de las inactivas */
+}
+
+/* Estilos para las flechas de navegación */
+.gallery-arrow {
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta para el centrado perfecto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 10; /* Asegura que las flechas estén por encima de las imágenes */
+    border: none; /* Asegura que no tengan borde por defecto de botón */
+    border-radius: 50%; /* Flechas redondas */
+    font-size: 1.2em;
+    font-weight: bold;
+    user-select: none; /* Evita que el texto de la flecha sea seleccionado */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    line-height: 1; /* Ajusta la altura de línea para centrar mejor el símbolo */
+    text-align: center; /* Centra el símbolo si el padding es desigual */
+}
+
+.gallery-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Más oscuro al pasar el ratón */
+    transform: translateY(-50%) scale(1.1); /* Ligeramente más grande al pasar el ratón */
+}
+
+.gallery-arrow.left {
+    left: 10px; /* Posiciona la flecha izquierda */
+}
+
+.gallery-arrow.right {
+    right: 10px; /* Posiciona la flecha derecha */
+}
+
+/* --- Fin Estilos Galería --- */
+
+
+/* Modificación para alinear precio y botón */
+.precio-compra {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Esto empuja este bloque hacia abajo en el flex column del .producto */
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Permite que los elementos salten de línea si no caben */
+    gap: 10px; /* Espacio entre los elementos */
+    justify-content: center; /* Centra los elementos si hay espacio */
+}
+
+.producto .precio {
+    font-size: 1.1em;
+    color: #007BFF;
+    font-weight: bold;
+    margin: 0; /* Reset */
+}
+
+/* ELIMINADO: Estilo para .cantidad-producto */
+
+.producto .descripcion {
+    font-size: 0.9em;
+    color: #555;
+    flex-grow: 1; /* Permite que la descripción ocupe el espacio restante */
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.boton-compra, .boton-agregar-carrito { /* Aplicar estilos a ambos botones */
+    background-color: #25D366; /* Color verde para WhatsApp/Comprar */
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.boton-compra:hover, .boton-agregar-carrito:hover {
+    background-color: #1DA851;
+}
+
+.boton-agregar-carrito {
+    background-color: #ff9800; /* Color naranja para agregar al carrito (ejemplo) */
+}
+
+.boton-agregar-carrito:hover {
+    background-color: #f57c00;
+}
+
+/* --- NUEVOS ESTILOS PARA LA SECCIÓN DE TALLAS Y CANTIDADES --- */
+.product-options {
+    margin: 15px 0; /* Espacio arriba y abajo */
+    padding: 10px 0;
+    border-top: 1px dashed #eee; /* Línea separadora opcional */
+    border-bottom: 1px dashed #eee; /* Línea separadora opcional */
+}
+
+.product-options .options-title {
+    font-size: 0.95em;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    color: #555;
+    text-align: left; /* Alinea el título a la izquierda */
+}
+
+.size-quantity-list {
+    display: flex; /* Usa flexbox para alinear las opciones de talla */
+    flex-wrap: wrap; /* Permite que los elementos salten de línea si no caben */
+    gap: 10px; /* Espacio entre las opciones de talla */
+    justify-content: center; /* Centra las opciones horizontalmente */
+}
+
+.size-option {
+    display: flex; /* Alinea la etiqueta y el input dentro de cada opción */
+    align-items: center;
+    gap: 5px; /* Espacio entre etiqueta e input */
+    font-size: 0.9em;
+    color: #555;
+}
+
+.size-option label {
+    font-weight: bold;
+    min-width: 20px; /* Asegura que la etiqueta de talla tenga un ancho mínimo */
+    text-align: right; /* Alinea la etiqueta a la derecha si el min-width es mayor que el contenido */
+}
+
+.size-option input[type="number"].quantity-by-size {
+    width: 45px; /* Ancho fijo para la caja de cantidad por talla */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1em; /* Ajusta el tamaño de fuente si es necesario */
+    -moz-appearance: textfield; /* Oculta flechas en Firefox */
+}
+
+/* Oculta flechas en Chrome, Safari, Edge, Opera */
+.size-option input[type="number"].quantity-by-size::-webkit-outer-spin-button,
+.size-option input[type="number"].quantity-by-size::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- FIN NUEVOS ESTILOS --- */
+
+
+/* --- Media Query existente (ajústala según los nuevos elementos) --- */
+@media (max-width: 600px) {
+    .catalogo-contenedor {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .producto {
+        padding: 10px;
+    }
+
+    /* Ajustes para la disposición en móvil */
+    .precio-compra {
+        flex-direction: column; /* Apila los elementos */
+        align-items: center; /* Centra en la columna */
+        gap: 5px; /* Reduce el espacio en móvil */
+    }
+
+    .producto .precio {
+        margin: 0; /* Reset */
+    }
+
+    /* ELIMINADO: Estilo para .cantidad-producto en móvil */
+
+    .boton-compra, .boton-agregar-carrito { /* Aplicar a ambos botones en móvil */
+         margin: 0; /* Reset */
+         width: 100%; /* Que el botón ocupe todo el ancho disponible */
+         box-sizing: border-box; /* Incluye padding y borde en el ancho */
+    }
+
+    footer {
+        padding: 1rem 10px;
+    }
+
+    /* Ajustes para los enlaces sociales en móvil (en el header) */
+    .social-links {
+         margin-bottom: 10px;
+    }
+
+    .social-links a {
+         margin: 0 5px;
+         font-size: 0.9em;
+    }
+
+    /* Ajuste para el icono del carrito en móvil */
+    .cart-icon-container {
+        top: 10px; /* Ajusta la posición en móvil */
+        right: 10px;
+        font-size: 1.3em;
+    }
+
+     .cart-count {
+        padding: 2px 5px;
+     }
+
+     /* Ajustes para la nueva sección de tallas en móvil */
+    .product-options {
+        margin: 10px 0; /* Reduce margen en móvil */
+    }
+
+    .product-options .options-title {
+        text-align: center; /* Centra el título en móvil si prefieres */
+    }
+
+    .size-quantity-list {
+        justify-content: center; /* Asegura que las opciones de talla se centren en móvil */
+        gap: 8px; /* Reduce el espacio entre opciones en móvil */
+    }
+
+     .size-option input[type="number"].quantity-by-size {
+         width: 40px; /* Quizás un poco más pequeño en móvil */
+         padding: 4px;
+     }
+}
+
+
+/* --- Estilos para el Modal de Compra Directa (existente) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Inicialmente oculto */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 550px;
+    width: 95%;
+    position: relative;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.modal-close-button:hover {
+    color: #777;
+}
+
+/* Estilos para el contenido del resumen dentro del modal */
+.modal-content h1 {
+     color: #333;
+     border-bottom: 1px solid #eee;
+     padding-bottom: 10px;
+     margin-bottom: 15px;
+     font-size: 1.5em;
+}
+
+.modal-content h2 {
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.modal-content p {
+     margin-bottom: 8px;
+}
+
+.modal-content strong {
+    color: #007BFF;
+}
+
+.modal-content .total {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #28a745;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.modal-content .discount {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Estilo específico para el botón de WhatsApp dentro del modal */
+.modal-content .whatsapp-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0 auto;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content .whatsapp-button:hover {
+    background-color: #1DA851;
+}
+
+/* --- Estilos para el Nuevo Modal del Carrito --- */
+#cartModalOverlay .modal-content h1 {
+    /* Sobreescribir el estilo para el título del carrito si es necesario */
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+#cartItemsContainer {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    border-bottom: 1px dashed #eee;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos salten de línea */
+    gap: 10px; /* Espacio entre elementos */
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Permite que los detalles ocupen el espacio disponible */
+}
+
+.cart-item-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.cart-item-details p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Estilo para mostrar las tallas y cantidades en el modal del carrito */
+.cart-item-details .item-sizes {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dotted #ddd; /* Separador visual */
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre cantidad y botón eliminar */
+}
+
+/* Estilo para el botón Eliminar en el carrito */
+.remove-item-button {
+    background-color: #dc3545; /* Color rojo */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+}
+
+.remove-item-button:hover {
+    background-color: #c82333;
+}
+
+#cartSummary {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    text-align: right;
+}
+
+#cartSummary .total {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #28a745;
+    margin: 0;
+}
+
+#cartSummary .whatsapp-button {
+    margin-top: 20px;
+    display: block;
+    width: fit-content;
+    margin-left: auto; /* Centrar el botón */
+    margin-right: auto; /* Centrar el botón */
+}
+
+
+/* Media query para ajustar los modales en pantallas pequeñas */
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .modal-content h1 {
+        font-size: 1.3em;
+    }
+
+    .modal-content h2 {
+        font-size: 1.1em;
+    }
+
+    .modal-content .total {
+        font-size: 1.2em;
+    }
+
+    .modal-content .whatsapp-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    /* Ajustes para el modal del carrito en móvil */
+     #cartModalOverlay .modal-content h1 {
+         font-size: 1.4em;
+     }
+
+    .cart-item {
+        flex-direction: column; /* Apilar en móvil */
+        align-items: flex-start; /* Alinear a la izquierda */
+    }
+
+    .cart-item-actions {
+        width: 100%; /* Ocupar todo el ancho */
+        justify-content: flex-end; /* Alinea los botones a la derecha en móvil */
+    }
+
+    .cart-item-details {
+        width: 100%; /* Ocupar todo el ancho */
+    }
+
+    .cart-item-details .item-sizes {
+         border-top: none; /* Elimina separador superior si apilado */
+         padding-top: 0;
+    }
+}
